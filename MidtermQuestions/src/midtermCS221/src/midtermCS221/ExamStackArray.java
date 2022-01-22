@@ -1,4 +1,4 @@
-package midtermCS221.src.midtermCS221;
+package PreparingQuestions.MidtermQuestions.src.midtermCS221.src.midtermCS221;
 
 import midtermCS221.StackInterface;
 
@@ -99,6 +99,31 @@ public class ExamStackArray<E> implements StackInterface<E> {
         return empty();
     }
 
+    //create a method that take a string and it should return how many vowels using stack.
+    //convert the decimal number to the binary number
+    public int countVowels(String word){
+        String vowels = "aeiouAEIOU";
+        for (int i = 0; i < word.length(); i++){
+            String str = word.charAt(i) + "";
+            if (vowels.contains(str))
+                push((E)str);
+        }
+        return getSize();
+    }
+
+    public String convertToBinary(int number){
+        Integer reference = number;
+        while (reference != 0){
+            Integer x = reference % 2;
+            push((E)x);
+            reference = reference / 2;
+        }
+        String binary = "";
+        while (!empty())
+            binary += pop();
+        return binary;
+    }
+
     public static void main (String[] args){
         ExamStackArray<String> st = new ExamStackArray<>();
         //st.push(5);
@@ -106,8 +131,9 @@ public class ExamStackArray<E> implements StackInterface<E> {
         //st.push(7);
 
         int [] numArr = st.Q3C_flushOutToArray();
+        System.out.println(st.convertToBinary(40));
 
-        System.out.println("Is palindrome : " + st.isPalindrome("stackkcats"));
+        //System.out.println("Is palindrome : " + st.isPalindrome("stackkcats"));
         // FIXME remove the comment tags to test the method
         /*while (!st.empty())
           //  System.out.println(st.pop());*/

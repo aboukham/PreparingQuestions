@@ -1,4 +1,4 @@
-package midtermCS221.src.midtermCS221;
+package PreparingQuestions.MidtermQuestions.src.midtermCS221.src.midtermCS221;
 
 import java.util.Iterator;
 
@@ -248,6 +248,13 @@ public class ExamLinkedList<E> implements Iterable<E>{
 		return count;
 	}
 
+	//create copy of node that exist in the given index in the list and add it in the first.
+
+	public void crateCopyInFirst(int index){
+		Node<E> node = getNode(index);
+		addFirst(node.data);
+	}
+
 	public static void main(String args[]) {
 		ExamLinkedList<Integer> sll = new ExamLinkedList<Integer>();
 
@@ -258,9 +265,11 @@ public class ExamLinkedList<E> implements Iterable<E>{
 		sll.addLast(90);
 
 		System.out.println(sll);
-		//sll.addBeforeIndex(3, 77);
+		sll.crateCopyInFirst(2);
 		System.out.println(sll);
-		System.out.println(sll.Q3B_countGreaterThan(60));
+		//sll.addBeforeIndex(3, 77);
+		//System.out.println(sll);
+		//System.out.println(sll.Q3B_countGreaterThan(60));
 		// Expected answer: 2
 
 	}
